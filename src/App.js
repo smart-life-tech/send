@@ -6,7 +6,11 @@ import idl from './idl.json' //get the smartcontract data structure model from t
 import { Connection, PublicKey, clusterApiUrl  } from '@solana/web3.js';
 import { Program, AnchorProvider, web3, utils } from '@project-serum/anchor';
 import { FeedPostDesign } from './feedPostDesign';
-
+const {
+  SolanaWeb3,
+  Account,
+  B64ToUint8Array,
+} = require('@solana/web3.js');
 const {SystemProgram,Keypair} = web3;
 
 window.Buffer = Buffer
@@ -18,11 +22,7 @@ const opts = {
 const feedPostApp = Keypair.generate();
 const connection = new Connection(network, opts.preflightCommitment);
 
-const {
-  SolanaWeb3,
-  Account,
-  B64ToUint8Array,
-} = require('@solana/web3.js');
+
 
 const web3 = new SolanaWeb3();
 
