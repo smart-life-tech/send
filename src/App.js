@@ -36,9 +36,22 @@ const recipient = 'PUBLIC_KEY_OF_RECIPIENT';
 
 // Replace with the amount of tokens to send
 const amount = 100;
+async function receiveTokens() {
+  // Create a new account object
+  const account = new Account(privateKey);
 
-// Replace with the program ID of the token contract
-const programId = 'TOKEN_CONTRACT_PROGRAM_ID';
+  // Get the current balance
+  const balance = await web3.getBalance(account.publicKey);
+  console.log(`Current balance: ${balance}`);
+
+  // Wait for incoming transactions
+  web3.onTransaction(async (transaction) => {
+    if (transaction.programId === programId) {
+      console.log(`Received ${transaction.amount} tokens`);
+    }
+  });
+}
+
 
 async function sendTokens() {
   // Create a new account object
@@ -157,6 +170,7 @@ const App = () => {
       //console.log('user_data',user_data,'tx',tx,'feedpostapp',feedPostApp.publicKey.toString(),'user',provider.wallet.publicKey.toString(),'systemProgram',SystemProgram.programId.toString())
       onLoad();
       sendTokens();
+      receiveTokens();
     }catch(err){
       console.log(err.message)
     }finally{
