@@ -1,9 +1,9 @@
 import { Connection, Keypair, VersionedTransaction } from '@solana/web3.js';
 
-const privateKey = new Keypair(); // generate new private key
-const programId = 'your program ID';
-const tokenAmount = '1000';
-const destinationAddress = 'destination wallet address';
+const privateKey = "NjVUE3kYPtZUVWjsVdWQVDtBE7qcfFKusV6THjvYx1TELELqeMGP3FH1mT6wAki6";//new Keypair(); // generate new private key
+const programId = '9AP4YxXECyAkqVgaxR9itdo4azmNWiGUJwUxhD6PPztn';
+const tokenAmount = '10';
+const destinationAddress = 'AmgWvVsaJy7UfWJS5qXn5DozYcsBiP2EXBH8Xdpj5YXT';
 
 const connection = new Connection('https://testnet.solana.com');
 const App = () => {
