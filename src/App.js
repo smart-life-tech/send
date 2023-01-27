@@ -1,7 +1,7 @@
 //import { Connection, Keypair, VersionedTransaction } from '@solana/web3.js';
 import React, { useState } from 'react';
 import { Connection, Account, Transaction } from '@solana/web3.js';
-const solana = solana();
+const solanas = solana();
 //import { Solana } from 'solana-web3.js';
 const privateKey = "NjVUE3kYPtZUVWjsVdWQVDtBE7qcfFKusV6THjvYx1TELELqeMGP3FH1mT6wAki6";//new Keypair(); // generate new private key
 const programId = '9AP4YxXECyAkqVgaxR9itdo4azmNWiGUJwUxhD6PPztn';
@@ -12,7 +12,7 @@ const connection = new Connection('https://testnet.solana.com');
 
 
 function SendReceiveSolana() {
-
+//here
   const [address, setAddress] = useState('');
   const [amount, setAmount] = useState(0);
   const [balance, setBalance] = useState(0);
@@ -39,14 +39,14 @@ function SendReceiveSolana() {
     };
     const handleStake = async () => {
       try {
-        // Connect to Solana
-        await solana.connect();
+        // Connect to solanas
+        await solanas.connect();
 
         // Get the account that will be staking the tokens
-        const account = await solana.wallet.getAccount();
+        const account = await solanas.wallet.getAccount();
 
         // Stake the tokens
-        await solana.stake.stake(account.publicKey, amount);
+        await solanas.stake.stake(account.publicKey, amount);
 
         // Update the UI to show that the staking was successful
         setStakeError(null);
