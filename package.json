@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@solana/buffer-layout": "^4.0.1",
+    "@solana/spl-token": "^0.3.7",
     "@solana/web3.js": "^1.73.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
