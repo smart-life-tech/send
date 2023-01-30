@@ -12,7 +12,9 @@ function StakeForm() {
   const [stakeError, setStakeError] = useState(null);
   const [walletConnected, setWalletConnected] = useState(false);
   const solana = new Connection('https://testnet.solana.com');
-
+  let allocateTransaction = new web3.Transaction({
+    feePayer: payer.publicKey,
+  });
   async function handleSubmit(event) {
     event.preventDefault();
 
